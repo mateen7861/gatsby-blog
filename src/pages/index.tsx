@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Layout from "../components/Layout"
@@ -59,9 +59,9 @@ export default function Home() {
               {documentToReactComponents(node.content.json, options)}
             </div>
             <br />
-            <Button color="primary" variant="contained">
+            <Link to={`${node.slug}`}><Button color="primary" variant="contained">
               Read More
-            </Button>
+            </Button></Link>
           </div>
         ))}
       </div>

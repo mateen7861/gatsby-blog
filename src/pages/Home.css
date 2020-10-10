@@ -1,0 +1,29 @@
+.home {
+  padding: 5rem 20%;
+}
+.home__blog__title,
+.home__blog__author {
+  color: rgb(24, 24, 24);
+  font-style: italic;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.rich {
+  height: 45px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: rgb(83, 83, 83);
+  font-size: 1.2rem;
+}
+.featured {
+  border-radius: 0.5rem;
+}
+.home__blog {
+  margin-bottom: 3rem;
+}
+@media screen and (max-width: 768px) {
+  .home {
+    padding: 5rem 5%;
+  }
+}

@@ -22,6 +22,9 @@
 .home__blog {
   margin-bottom: 3rem;
 }
+.home__blog__link {
+  text-decoration: none;
+}
 @media screen and (max-width: 768px) {
   .home {
     padding: 5rem 5%;

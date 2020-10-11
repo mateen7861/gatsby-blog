@@ -59,9 +59,11 @@ export default function Home() {
               {documentToReactComponents(node.content.json, options)}
             </div>
             <br />
-            <Link to={`${node.slug}`}><Button color="primary" variant="contained">
-              Read More
-            </Button></Link>
+            <Link to={`${node.slug}`} className="home__blog__link">
+              <Button color="primary" variant="contained">
+                Read More
+              </Button>
+            </Link>
           </div>
         ))}
       </div>

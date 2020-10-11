@@ -2,6 +2,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Button } from "@material-ui/core"
 import { graphql } from "gatsby"
 import React from "react"
+import "./blog.css"
 import Img from "gatsby-image"
 import Layout from "../components/Layout"
 export const query = graphql`
@@ -33,12 +34,9 @@ const options = {
             justifyContent: "center",
             margin: "1rem 0rem",
           }}
+          className="blog__container__content__container"
         >
-          <img
-            style={{ width: "100%", objectFit: "contain" }}
-            alt={alt}
-            src={url}
-          />
+          <img className="blog__container__content__img" alt={alt} src={url} />
         </div>
       )
     },
@@ -48,27 +46,31 @@ const Blog = ({ data }) => {
   console.log(data)
   return (
     <Layout>
-      <div className="home">
-        <div className="home__blog">
-          <h1 className="home__blog__title">{data.contentfulPost.title}</h1>
+      <div className="blog">
+        <div className="blog__container">
+          <h1 className="blog__container__title">
+            {data.contentfulPost.title}
+          </h1>
 
-          <p className="home__blog__author">
+          <p className="blog__container__author">
             By <span> {data.contentfulPost.author}</span>
           </p>
           <br />
 
           <Img
-            className="featured"
+            className="blog__container__thumbnail"
             fluid={data.contentfulPost.thumbnail.fluid}
             alt={data.contentfulPost.title}
           />
 
           <br />
 
-          {documentToReactComponents(
-            data.contentfulPost.childContentfulPostContentRichTextNode.json,
-            options
-          )}
+          <div className="blog__container__content">
+            {documentToReactComponents(
+              data.contentfulPost.childContentfulPostContentRichTextNode.json,
+              options
+            )}
+          </div>
 
           <br />
         </div>

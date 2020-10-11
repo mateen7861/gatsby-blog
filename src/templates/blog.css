@@ -1,0 +1,32 @@
+.blog {
+  padding: 5rem 20%;
+}
+.blog__container__title,
+.blog__container__author {
+  color: rgb(24, 24, 24);
+  font-style: italic;
+  text-align: center;
+  margin: 0.5rem;
+}
+.blog__container__thumbnail {
+  border-radius: 0.5rem;
+}
+.blog__container__content > p {
+  color: rgb(83, 83, 83);
+  font-size: 1.3rem;
+}
+.blog__container__content__container {
+  width: "100%";
+  display: "flex";
+  justify-content: "center";
+  margin: "1rem 0rem";
+}
+@media screen and (max-width: 768px) {
+  .blog {
+    padding: 5rem 5%;
+  }
+  .blog__container__content__img {
+    width: 90%;
+    object-fit: contain;
+  }
+}

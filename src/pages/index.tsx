@@ -5,8 +5,14 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Layout from "../components/Layout"
 import "./Home.css"
 import Button from "@material-ui/core/Button"
-
+import { GlobalContext } from "../context/GlobalProvider"
+import { useContext } from "react"
+import { useNavigate } from "@reach/router"
 export default function Home() {
+  const navigate = useNavigate()
+
+  const [{ viewed }, dispatch]: any = useContext(GlobalContext)
+  console.log(viewed)
   const data = useStaticQuery(graphql`
     {
       allContentfulPost {
@@ -35,11 +41,21 @@ export default function Home() {
       },
     },
   }
+  const send = () => {
+    dispatch({
+      type: "ADD",
+      payload: {
+        id: 23,
+        name: "mateen",
+      },
+    })
+  }
   return (
     <Layout>
       <div className="home">
-        {data.allContentfulPost.nodes.map(node => (
-          <div className="home__blog" key={1}>
+        <button onClick={send}>Click</button>
+        {data.allContentfulPost.nodes.map((node, index) => (
+          <div className="home__blog" key={index}>
             <h1 className="home__blog__title">{node.title}</h1>
 
             <p className="home__blog__author">
@@ -59,11 +75,15 @@ export default function Home() {
               {documentToReactComponents(node.content.json, options)}
             </div>
             <br />
-            <Link to={`${node.slug}`} className="home__blog__link">
-              <Button color="primary" variant="contained">
-                Read More
-              </Button>
-            </Link>
+
+            <Button
+              color="primary"
+              disabled={viewed >= 3 ? true : false}
+              variant="contained"
+              onClick={() => navigate(`${node.slug}`)}
+            >
+              Read More
+            </Button>
           </div>
         ))}
       </div>

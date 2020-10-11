@@ -53,6 +53,7 @@ export default function Home() {
   }
   return (
     <Layout>
+      <Dialog></Dialog>
       <div className="home">
         <button onClick={send}>Click</button>
         <Dialog />

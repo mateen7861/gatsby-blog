@@ -44,7 +44,7 @@ const options = {
   },
 }
 const Blog = ({ data }) => {
-  const [{ viewed }, dispatch]: any = useContext(GlobalContext)
+  const [mState, dispatch]: any = useContext(GlobalContext)
   useEffect(() => {
     dispatch({
       type: "ADD",

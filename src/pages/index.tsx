@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button"
 import { GlobalContext } from "../context/GlobalProvider"
 import { useContext } from "react"
 import { useNavigate } from "@reach/router"
-import Dialog from "../components/Dialog"
+
 export default function Home() {
   const navigate = useNavigate()
 
@@ -42,21 +42,10 @@ export default function Home() {
       },
     },
   }
-  const send = () => {
-    dispatch({
-      type: "ADD",
-      payload: {
-        id: 23,
-        name: "mateen",
-      },
-    })
-  }
+
   return (
     <Layout>
-      <Dialog></Dialog>
       <div className="home">
-        <button onClick={send}>Click</button>
-        <Dialog />
         {data.allContentfulPost.nodes.map((node, index) => (
           <div className="home__blog" key={index}>
             <h1 className="home__blog__title">{node.title}</h1>

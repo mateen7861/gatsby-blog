@@ -37,11 +37,11 @@ const uiConfig = {
   // Popup signin flow rather than redirect flow.
   signInFlow: "popup",
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: "/signedIn",
+  signInSuccessUrl: "/",
   // We will display Google and Facebook as auth providers.
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    firebase.auth.GithubAuthProvider.PROVIDER_ID,
   ],
 }
 
@@ -51,7 +51,7 @@ export interface SimpleDialogProps {
   onClose: (value: string) => void
 }
 
-function SimpleDialog(props: SimpleDialogProps) {
+export function SimpleDialog(props: SimpleDialogProps) {
   const classes = useStyles()
   const { onClose, selectedValue, open } = props
 
@@ -77,34 +77,5 @@ function SimpleDialog(props: SimpleDialogProps) {
         />
       </List>
     </Dialog>
-  )
-}
-
-export default function SimpleDialogDemo() {
-  const [open, setOpen] = React.useState(false)
-  const [selectedValue, setSelectedValue] = React.useState<string | any>()
-
-  const handleClickOpen = () => {
-    setOpen(true)
-  }
-
-  const handleClose = (value: string) => {
-    setOpen(false)
-    setSelectedValue(value)
-  }
-
-  return (
-    <div>
-      <Typography variant="subtitle1">Selected: {selectedValue}</Typography>
-      <br />
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open simple dialog
-      </Button>
-      <SimpleDialog
-        selectedValue={selectedValue}
-        open={open}
-        onClose={handleClose}
-      />
-    </div>
   )
 }

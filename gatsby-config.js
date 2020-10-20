@@ -16,7 +16,19 @@ module.exports = {
         accessToken: "zNiXawIJ2i9JriQsmONCt1WSzReNojDXAKPkeanqOZU",
       },
     },
-    
+    {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        features: {
+          auth: true,
+          database: false,
+          firestore: false,
+          storage: false,
+          messaging: false,
+          functions: false,
+          performance: false
+        }
+      }},
     "gatsby-plugin-typescript",
     `gatsby-plugin-material-ui`,
   ],

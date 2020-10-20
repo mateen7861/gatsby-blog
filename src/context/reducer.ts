@@ -1,6 +1,9 @@
 import { ProductType, Products } from "./types";
 export const initialState: any = {
   viewed: 0,
+  isLogedIn:false
+  
+  
 };
 type Action =
   | { type: "ADD"; payload: { id: number; name: string } }
@@ -12,11 +15,9 @@ export const reducer = (state:any, action: any): any => {
     case "ADD": {
       return { ...state, viewed:state.viewed+1  };
     }
-    // case "DELETE": {
-    //   return {
-    //     basket: state.basket.filter((t) => t.id !== action.payload.id),
-    //   };
-    // }
+   case 'ADD_USER':{
+     return {...state, isLogedIn:true}
+   }
     default:
       return state;
   }

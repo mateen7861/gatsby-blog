@@ -16,6 +16,7 @@ module.exports = {
         accessToken: "zNiXawIJ2i9JriQsmONCt1WSzReNojDXAKPkeanqOZU",
       },
     },
+    
     "gatsby-plugin-typescript",
     `gatsby-plugin-material-ui`,
   ],

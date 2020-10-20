@@ -33,6 +33,16 @@ const firebaseConfig = {
 }
 firebase.initializeApp(firebaseConfig)
 
+
+
+export interface SimpleDialogProps {
+  open: boolean
+  selectedValue: string
+  onClose: (value: string) => void
+}
+
+export function SimpleDialog(props: SimpleDialogProps) {
+
 const uiConfig = {
   // Popup signin flow rather than redirect flow.
   signInFlow: "popup",
@@ -45,13 +55,6 @@ const uiConfig = {
   ],
 }
 
-export interface SimpleDialogProps {
-  open: boolean
-  selectedValue: string
-  onClose: (value: string) => void
-}
-
-export function SimpleDialog(props: SimpleDialogProps) {
   const classes = useStyles()
   const { onClose, selectedValue, open } = props
 

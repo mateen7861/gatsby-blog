@@ -13,8 +13,8 @@ import AddIcon from "@material-ui/icons/Add"
 import Typography from "@material-ui/core/Typography"
 import { blue } from "@material-ui/core/colors"
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
-import useFirebase from "../useFirebase"
 
+import firebase from "firebase"
 
 const useStyles = makeStyles({
   avatar: {
@@ -22,17 +22,6 @@ const useStyles = makeStyles({
     color: blue[600],
   },
 })
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCJ1a5hHhPuufEtjWns0cOxV1TwmsvBy1M",
-//   authDomain: "blog-site-eb3d8.firebaseapp.com",
-//   databaseURL: "https://blog-site-eb3d8.firebaseio.com",
-//   projectId: "blog-site-eb3d8",
-//   storageBucket: "blog-site-eb3d8.appspot.com",
-//   messagingSenderId: "606889257413",
-//   appId: "1:606889257413:web:1f8fcb53a57d6d4cfc43ac",
-//   measurementId: "G-KQHGFM7H5E",
-// }
-// firebase.initializeApp(firebaseConfig)
 
 
 export interface SimpleDialogProps {
@@ -42,20 +31,34 @@ export interface SimpleDialogProps {
 }
 
 export function SimpleDialog(props: SimpleDialogProps) {
-  const firebase:any = useFirebase();
+  let uiConfig
+  useEffect(() => {
 
-  const uiConfig = {
-    // Popup signin flow rather than redirect flow.
-    signInFlow: "popup",
-    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    signInSuccessUrl: "/",
-    // We will display Google and Facebook as auth providers.
-    
-    signInOptions: [
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    ],
-  }
+    const firebaseConfig = {
+      apiKey: "AIzaSyCJ1a5hHhPuufEtjWns0cOxV1TwmsvBy1M",
+      authDomain: "blog-site-eb3d8.firebaseapp.com",
+      databaseURL: "https://blog-site-eb3d8.firebaseio.com",
+      projectId: "blog-site-eb3d8",
+      storageBucket: "blog-site-eb3d8.appspot.com",
+      messagingSenderId: "606889257413",
+      appId: "1:606889257413:web:1f8fcb53a57d6d4cfc43ac",
+      measurementId: "G-KQHGFM7H5E",
+    }
+    firebase.initializeApp(firebaseConfig)
+
+    uiConfig = {
+      // Popup signin flow rather than redirect flow.
+      signInFlow: "popup",
+      // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+      signInSuccessUrl: "/",
+      // We will display Google and Facebook as auth providers.
+
+      signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+      ],
+    }
+  })
 
 
   const classes = useStyles()

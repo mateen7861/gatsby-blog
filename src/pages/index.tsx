@@ -8,14 +8,14 @@ import Button from "@material-ui/core/Button"
 import { GlobalContext } from "../context/GlobalProvider"
 import { useContext } from "react"
 import { useNavigate } from "@reach/router"
-import firebase from "firebase"
+// import firebase from "firebase"
 import { useState } from "react"
 export default function Home() {
   const [state,setState]=useState()
   const navigate = useNavigate()
-  firebase.auth().onAuthStateChanged(
-    (user:any) => setState(user)
-);
+//   firebase.auth().onAuthStateChanged(
+//     (user:any) => setState(user)
+// );
 console.log(state)
   const [{ viewed }, dispatch]: any = useContext(GlobalContext)
   console.log(viewed)
@@ -59,7 +59,7 @@ console.log(state)
               By <span> {node.author}</span>
             </p>
             <br />
-            <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
+            {/* <a onClick={() => firebase.auth().signOut()}>Sign-out</a> */}
 
             <Img
               className="featured"

@@ -3,7 +3,6 @@ import { Button } from "@material-ui/core"
 import { graphql } from "gatsby"
 import React, { useContext, useEffect } from "react"
 import "./blog.css"
-import { GlobalContext } from "../context/GlobalProvider"
 import Img from "gatsby-image"
 import Layout from "../components/Layout"
 export const query = graphql`
@@ -44,17 +43,7 @@ const options = {
   },
 }
 const Blog = ({ data }) => {
-  const [mState, dispatch]: any = useContext(GlobalContext)
-  useEffect(() => {
-    dispatch({
-      type: "ADD",
-      payload: {
-        id: 23,
-        name: "mateen",
-      },
-    })
-  }, [])
-  console.log(data)
+
   return (
     <Layout>
       <div className="blog">

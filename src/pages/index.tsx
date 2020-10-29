@@ -5,20 +5,18 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Layout from "../components/Layout"
 import "./Home.css"
 import Button from "@material-ui/core/Button"
-import { GlobalContext } from "../context/GlobalProvider"
+
 import { useContext } from "react"
 import { useNavigate } from "@reach/router"
-// import firebase from "firebase"
+
 import { useState } from "react"
 export default function Home() {
-  const [state,setState]=useState()
+  const [state, setState] = useState()
   const navigate = useNavigate()
-//   firebase.auth().onAuthStateChanged(
-//     (user:any) => setState(user)
-// );
-console.log(state)
-  const [{ viewed }, dispatch]: any = useContext(GlobalContext)
-  console.log(viewed)
+
+
+
+
   const data = useStaticQuery(graphql`
     {
       allContentfulPost {
@@ -76,7 +74,7 @@ console.log(state)
 
             <Button
               color="primary"
-              disabled={viewed >= 3 ? true : false}
+
               variant="contained"
               onClick={() => navigate(`${node.slug}`)}
             >

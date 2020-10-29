@@ -5,7 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
 import Button from "@material-ui/core/Button"
 import { Link } from "gatsby"
-import { SimpleDialog } from "./Dialog"
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,14 +44,8 @@ export default function ButtonAppBar() {
               Gatsby Blog
             </Link>
           </Typography>
-          <Button color="inherit" onClick={handleClickOpen}>
-            Login
-          </Button>
-          <SimpleDialog
-            selectedValue={selectedValue}
-            open={open}
-            onClose={handleClose}
-          />
+
+
         </Toolbar>
       </AppBar>
     </div>
